@@ -3,7 +3,9 @@ package edu.ksu.sw6633auctionapi.mapper;
 import edu.ksu.sw6633auctionapi.dto.BidDTO;
 import edu.ksu.sw6633auctionapi.entity.Bid;
 import org.springframework.beans.BeanUtils;
+import org.springframework.stereotype.Service;
 
+@Service
 public class BidMapper {
     public BidDTO fromBid(Bid bid){
         BidDTO bidDTO = new BidDTO();

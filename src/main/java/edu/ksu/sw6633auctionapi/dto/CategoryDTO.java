@@ -1,9 +1,5 @@
 package edu.ksu.sw6633auctionapi.dto;
 
-import edu.ksu.sw6633auctionapi.entity.AuctionItem;
-
-import javax.persistence.Column;
-
 public class CategoryDTO {
     private Long categoryId;
     private String categoryName;

@@ -1,14 +1,11 @@
 package edu.ksu.sw6633auctionapi.mapper;
 
 import edu.ksu.sw6633auctionapi.dto.AuctionItemDTO;
-import edu.ksu.sw6633auctionapi.dto.BidDTO;
-import edu.ksu.sw6633auctionapi.dto.CategoryDTO;
-import edu.ksu.sw6633auctionapi.dto.RegisteredUserDTO;
 import edu.ksu.sw6633auctionapi.entity.AuctionItem;
 import org.springframework.beans.BeanUtils;
+import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
-
+@Service
 public class AuctionItemMapper {
 
    public AuctionItemDTO fromAuctionItem(AuctionItem auctionItem){

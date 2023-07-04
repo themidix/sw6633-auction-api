@@ -1,10 +1,5 @@
 package edu.ksu.sw6633auctionapi.dto;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
 public class RegisteredUserDTO {
 
     private Long registeredUserId;
@@ -14,6 +9,7 @@ public class RegisteredUserDTO {
     private String creditCardNumber;
 
     private UserDTO user;
+    private BidDTO bidDTO;
 
     public Long getRegisteredUserId() {
         return registeredUserId;
@@ -61,5 +57,13 @@ public class RegisteredUserDTO {
 
     public void setUser(UserDTO user) {
         this.user = user;
+    }
+
+    public BidDTO getBidDTO() {
+        return bidDTO;
+    }
+
+    public void setBidDTO(BidDTO bidDTO) {
+        this.bidDTO = bidDTO;
     }
 }

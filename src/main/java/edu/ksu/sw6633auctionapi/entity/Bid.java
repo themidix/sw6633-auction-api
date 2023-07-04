@@ -12,22 +12,27 @@ public class Bid {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "bid_id", nullable = false)
     private Long bidId;
-    @Column(name = "comment", nullable = false, length = 64, unique = true)
+    @Column(name = "comment", nullable = false, length = 64)
     private String comment;
-    @Column(name = "amount", nullable = false, length = 45, unique = true)
+    @Column(name = "amount", nullable = false, length = 45)
     private double amount;
     @Column(nullable = false)
     private LocalDateTime placedAt;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "auction_item_id")
+    @JoinColumn(name = "auction_item_id",referencedColumnName = "registered_user_id")
     private AuctionItem auctionItem;
 
-    public Bid(GuestUser placedBy, String comment, double amount, LocalDateTime placedAt, AuctionItem auctionItem) {
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "registered_user_id",referencedColumnName = "registered_user_id")
+    private RegisteredUser registeredUser;
+
+    public Bid(GuestUser placedBy, String comment, double amount, LocalDateTime placedAt, AuctionItem auctionItem, RegisteredUser registeredUser) {
         this.comment = comment;
         this.amount = amount;
         this.placedAt = placedAt;
         this.auctionItem = auctionItem;
+        this.registeredUser = registeredUser;
     }
     public Bid() {
 
@@ -48,6 +53,7 @@ public class Bid {
                 ", amount=" + amount +
                 ", placedAt=" + placedAt +
                 ", auctionItem=" + auctionItem +
+                ", registeredUser=" + registeredUser +
                 '}';
     }
 
@@ -102,5 +108,13 @@ public class Bid {
 
     public void setAuctionItem(AuctionItem auctionItem) {
         this.auctionItem = auctionItem;
+    }
+
+    public RegisteredUser getRegisteredUser() {
+        return registeredUser;
+    }
+
+    public void setRegisteredUser(RegisteredUser registeredUser) {
+        this.registeredUser = registeredUser;
     }
 }

@@ -11,9 +11,9 @@ public class AuctionItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "auction_item_item_id", nullable = false)
     private Long auctionItemId;
-    @Column(name = "auction_item_img_url", nullable = false, length = 64)
+    @Column(name = "auction_item_img_url",length = 64)
     private String auctionItmImgUrl;
-    @Column(name = "description", nullable = false, length = 64)
+    @Column(name = "description", length = 64)
     private String description;
     @Column(name = "starting_price", nullable = false, length = 64)
     private double startingPrice;
@@ -21,10 +21,10 @@ public class AuctionItem {
     @Column(name = "auction_item_status", nullable = false, length = 45)
     private boolean auctionItemStatus;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private LocalDateTime closingTime;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private LocalDateTime createdAt;
 
     @OneToOne(cascade = CascadeType.REMOVE)
@@ -53,22 +53,6 @@ public class AuctionItem {
         this.category = category;
         this.currentHighestBid = currentHighestBid;
         this.registeredUser = registeredUser;
-    }
-
-    @Override
-    public String toString() {
-        return "AuctionItem{" +
-                "auctionItemId=" + auctionItemId +
-                ", auctionItmImgUrl='" + auctionItmImgUrl + '\'' +
-                ", description='" + description + '\'' +
-                ", startingPrice=" + startingPrice +
-                ", auctionItemStatus=" + auctionItemStatus +
-                ", closingTime=" + closingTime +
-                ", createdAt=" + createdAt +
-                ", category=" + category +
-                ", currentHighestBid=" + currentHighestBid +
-                ", registeredUser=" + registeredUser +
-                '}';
     }
     @Override
     public boolean equals(Object o) {

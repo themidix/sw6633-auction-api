@@ -13,7 +13,7 @@ public class CategoryMapper {
     }
 
     public Category fromCategoryDTO(CategoryDTO categoryDTO){
-        Category category = new Category(auctionItem);
+        Category category = new Category();
         BeanUtils.copyProperties(categoryDTO,category);
         return category;
     }

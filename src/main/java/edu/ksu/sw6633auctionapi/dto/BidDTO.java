@@ -7,6 +7,8 @@ public class BidDTO {
     private double amount;
     private LocalDateTime placedAt;
     private AuctionItemDTO auctionItemDTO;
+    private RegisteredUserDTO registeredUserDTO;
+
 
     public Long getBidId() {
         return bidId;
@@ -46,5 +48,13 @@ public class BidDTO {
 
     public void setAuctionItemDTO(AuctionItemDTO auctionItemDTO) {
         this.auctionItemDTO = auctionItemDTO;
+    }
+
+    public RegisteredUserDTO getRegisteredUserDTO() {
+        return registeredUserDTO;
+    }
+
+    public void setRegisteredUserDTO(RegisteredUserDTO registeredUserDTO) {
+        this.registeredUserDTO = registeredUserDTO;
     }
 }

@@ -3,7 +3,7 @@ package edu.ksu.sw6633auctionapi.service;
 import edu.ksu.sw6633auctionapi.dto.RegisteredUserDTO;
 import edu.ksu.sw6633auctionapi.entity.RegisteredUser;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
+
 import java.util.List;
 
 public interface RegisteredUserService {

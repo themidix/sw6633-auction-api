@@ -1,10 +1,5 @@
 package edu.ksu.sw6633auctionapi.dto;
 
-import edu.ksu.sw6633auctionapi.entity.Bid;
-import edu.ksu.sw6633auctionapi.entity.Category;
-import edu.ksu.sw6633auctionapi.entity.RegisteredUser;
-
-import javax.persistence.*;
 import java.time.LocalDateTime;
 
 public class AuctionItemDTO {
