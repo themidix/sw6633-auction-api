@@ -12,6 +12,7 @@ public class AuctionItemDTO {
     private LocalDateTime closingTime;
     private LocalDateTime createdAt;
     private CategoryDTO categoryDTO;
+
     private BidDTO currentHighestBidDTO;
     private RegisteredUserDTO registeredUserDTO;
 
@@ -79,19 +80,19 @@ public class AuctionItemDTO {
         this.categoryDTO = categoryDTO;
     }
 
-    public BidDTO getCurrentHighestBidDTO() {
-        return currentHighestBidDTO;
-    }
-
-    public void setCurrentHighestBidDTO(BidDTO currentHighestBidDTO) {
-        this.currentHighestBidDTO = currentHighestBidDTO;
-    }
-
     public RegisteredUserDTO getRegisteredUserDTO() {
         return registeredUserDTO;
     }
 
     public void setRegisteredUserDTO(RegisteredUserDTO registeredUserDTO) {
         this.registeredUserDTO = registeredUserDTO;
+    }
+
+    public BidDTO getCurrentHighestBidDTO() {
+        return currentHighestBidDTO;
+    }
+
+    public void setCurrentHighestBidDTO(BidDTO currentHighestBidDTO) {
+        this.currentHighestBidDTO = currentHighestBidDTO;
     }
 }

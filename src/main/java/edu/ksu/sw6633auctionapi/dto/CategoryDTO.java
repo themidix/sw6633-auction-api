@@ -4,8 +4,6 @@ public class CategoryDTO {
     private Long categoryId;
     private String categoryName;
 
-    private AuctionItemDTO auctionItemDTO;
-
     public Long getCategoryId() {
         return categoryId;
     }
@@ -20,13 +18,5 @@ public class CategoryDTO {
 
     public void setCategoryName(String categoryName) {
         this.categoryName = categoryName;
-    }
-
-    public AuctionItemDTO getAuctionItemDTO() {
-        return auctionItemDTO;
-    }
-
-    public void setAuctionItemDTO(AuctionItemDTO auctionItemDTO) {
-        this.auctionItemDTO = auctionItemDTO;
     }
 }

@@ -15,8 +15,14 @@ public class AuctionItemRestController {
         this.auctionItemService = auctionItemService;
     }
 
-    @RequestMapping(value = "/auctions",method = RequestMethod.POST,produces = "application/json")
+    @RequestMapping(value = "/auction-api",method = RequestMethod.POST,produces = "application/json")
     public AuctionItemDTO createAuctionItem(@RequestBody AuctionItemDTO auctionItemDTO){
         return auctionItemService.createAuctionItem(auctionItemDTO);
+    }
+
+   // @GetMapping("/{auctionItemId}")
+    @RequestMapping(value = "/loadAuctionItemById/{auctionItemId}",method = RequestMethod.GET,produces = "application/json")
+    public AuctionItemDTO loadAuctionItemById(@PathVariable Long auctionItemId){
+        return auctionItemService.loadAuctionItemById(auctionItemId);
     }
 }

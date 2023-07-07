@@ -16,7 +16,7 @@ public class Bid {
     private String comment;
     @Column(name = "amount", nullable = false, length = 45)
     private double amount;
-    @Column(nullable = false)
+    @Column(nullable = true)
     private LocalDateTime placedAt;
 
     @ManyToOne(fetch = FetchType.LAZY)

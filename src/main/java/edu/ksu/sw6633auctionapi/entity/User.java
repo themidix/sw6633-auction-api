@@ -25,12 +25,6 @@ public class User {
     private RegisteredUser registeredUser;
 
 
-    public User(String email, String password,RegisteredUser registeredUser) {
-        this.email = email;
-        this.password = password;
-        this.registeredUser = registeredUser;
-    }
-
     public User() {
 
     }

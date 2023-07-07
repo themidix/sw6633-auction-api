@@ -1,12 +1,13 @@
 package edu.ksu.sw6633auctionapi.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Entity
 @Table(name="Auction_items")
-public class AuctionItem {
+public class AuctionItem implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "auction_item_item_id", nullable = false)
@@ -28,16 +29,14 @@ public class AuctionItem {
     private LocalDateTime createdAt;
 
     @OneToOne(cascade = CascadeType.REMOVE)
-    @JoinColumn(name = "category_id", referencedColumnName = "category_id", nullable = false)
+    @JoinColumn(name = "category_id", referencedColumnName = "category_id")
     private Category category;
-
-
 
     @OneToOne(cascade = CascadeType.ALL, optional = true)
     @JoinColumn(name = "bid_id")
     private Bid currentHighestBid;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "registered_user_id",referencedColumnName = "registered_user_id",nullable = false)
+    @JoinColumn(name = "registered_user_id",referencedColumnName = "registered_user_id")
     private RegisteredUser registeredUser;
 
     public AuctionItem() {
