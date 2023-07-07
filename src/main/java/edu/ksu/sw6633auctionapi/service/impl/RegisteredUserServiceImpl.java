@@ -25,6 +25,7 @@ public class RegisteredUserServiceImpl implements RegisteredUserService {
     private RegisteredUserMapper registeredUserMapper;
 
     private UserService userService;
+
     public RegisteredUserServiceImpl(RegisteredUserMapper registeredUserMapper, RegisteredUserRepository registeredUserRepository, UserService userService) {
         this.registeredUserMapper = registeredUserMapper;
         this.registeredUserRepository = registeredUserRepository;

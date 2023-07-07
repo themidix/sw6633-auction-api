@@ -19,4 +19,6 @@ public interface AuctionItemRepository extends JpaRepository<AuctionItem, Long> 
     Optional<AuctionItem> loadAuctionItemByCategory(@Param("categoryName") String categoryName);
     @Query(value = "select a from AuctionItem as a where  a.auctionItemStatus=:status")
     Page<AuctionItemDTO> findAuctionItemByStatus(@Param("status") boolean status, PageRequest pageRequest);
+    @Query(value = "select a from AuctionItem as a where  a.auctionItemId=:auctionItemId")
+    AuctionItemDTO loadAuctionItemById(@Param("auctionItemId")Long auctionItemId);
 }

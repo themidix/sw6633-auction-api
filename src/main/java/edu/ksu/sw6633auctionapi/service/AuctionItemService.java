@@ -11,6 +11,8 @@ public interface AuctionItemService {
     AuctionItemDTO createAuctionItem(AuctionItemDTO auctionItemDTO);
     AuctionItemDTO updateAuctionItem(AuctionItemDTO auctionItemDTO);
     Page<AuctionItemDTO> findAuctionItemByStatus(boolean status, int page, int size);
+
+    AuctionItemDTO loadAuctionItemById(Long auctionItemId);
     List<AuctionItemDTO> getAllAuctionItems();
     void removeAuctionItem(Long auctionItemId);
 

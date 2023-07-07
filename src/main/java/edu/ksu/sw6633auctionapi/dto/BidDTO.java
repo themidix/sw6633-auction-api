@@ -9,7 +9,6 @@ public class BidDTO {
     private AuctionItemDTO auctionItemDTO;
     private RegisteredUserDTO registeredUserDTO;
 
-
     public Long getBidId() {
         return bidId;
     }

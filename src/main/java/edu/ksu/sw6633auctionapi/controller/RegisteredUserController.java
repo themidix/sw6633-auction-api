@@ -1,5 +1,6 @@
 package edu.ksu.sw6633auctionapi.controller;
 import edu.ksu.sw6633auctionapi.dto.RegisteredUserDTO;
+import edu.ksu.sw6633auctionapi.entity.RegisteredUser;
 import edu.ksu.sw6633auctionapi.entity.User;
 import edu.ksu.sw6633auctionapi.service.RegisteredUserService;
 import edu.ksu.sw6633auctionapi.service.UserService;
@@ -30,5 +31,15 @@ public class RegisteredUserController {
         User user = userService.loadUserByEmail(registeredUserDTO.getUser().getEmail());
         if (user != null) throw new RuntimeException("Email Already Exist");
         return registeredUserService.createRegisteredUser(registeredUserDTO);
+    }
+
+    @GetMapping("/{registeredUserId}")
+    public RegisteredUser loadRegisteredUserById(@PathVariable Long registeredUserId){
+        return registeredUserService.loadRegisteredUserById(registeredUserId);
+    }
+
+    @GetMapping
+    RegisteredUserDTO findRegisteredUserByEmail(@RequestParam(name = "email", defaultValue = "")String email){
+        return registeredUserService.findRegisteredUserByEmail(email);
     }
 }

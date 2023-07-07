@@ -15,7 +15,7 @@ public class RunnerApp implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        //createRoles();
+        createRoles();
     }
     private void createRoles() {
         Arrays.asList("Admin", "RegisteredUser", "GuestUser").forEach(role -> roleService.createRole(role));
