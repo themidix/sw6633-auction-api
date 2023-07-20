@@ -1,4 +1,6 @@
 package edu.ksu.sw6633auctionapi.dto;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import java.time.LocalDateTime;
 public class BidDTO {
 
@@ -6,6 +8,7 @@ public class BidDTO {
     private String comment;
     private double amount;
     private LocalDateTime placedAt;
+
     private AuctionItemDTO auctionItemDTO;
     private RegisteredUserDTO registeredUserDTO;
 

@@ -38,16 +38,61 @@ public class BidServiceImpl implements BidService {
         this.auctionItemService = auctionItemService;
     }
 
+//    @Override
+//    public BidDTO createABid(BidDTO bidDTO) {
+//        Bid bid = bidMapper.fromBidDTO(bidDTO);
+//        RegisteredUser registeredUser = registeredUserRepository.findRegisteredUserByEmail(bidDTO.getAuctionItemDTO().getRegisteredUserDTO().getUser().getEmail());
+//        AuctionItem auctionItem = auctionItemRepository.findById(bidDTO.getAuctionItemDTO().getAuctionItemId()).orElseThrow(() -> new EntityNotFoundException("Auction item with ID " + bidDTO.getAuctionItemDTO().getAuctionItemId() + " Not Found"));
+//        bid.setRegisteredUser(registeredUser);
+//        bid.setAuctionItem(auctionItem);
+//        Bid savedBid = bidRepository.save(bid);
+//        return bidMapper.fromBid(savedBid);
+//    }
+//@Override
+//public BidDTO createABid(BidDTO bidDTO) {
+//    Bid bid = bidMapper.fromBidDTO(bidDTO);
+//
+//    // Retrieve the existing RegisteredUser based on the ID
+//    RegisteredUser registeredUser = registeredUserRepository.findById(bidDTO.getAuctionItemDTO().getRegisteredUserDTO().getRegisteredUserId())
+//            .orElseThrow(() -> new EntityNotFoundException("Registered user with ID " + bidDTO.getAuctionItemDTO().getRegisteredUserDTO().getRegisteredUserId() + " Not Found"));
+//
+//    AuctionItem auctionItem = auctionItemRepository.findById(bidDTO.getAuctionItemDTO().getAuctionItemId())
+//            .orElseThrow(() -> new EntityNotFoundException("Auction item with ID " + bidDTO.getAuctionItemDTO().getAuctionItemId() + " Not Found"));
+//
+//    bid.setRegisteredUser(registeredUser);
+//    bid.setAuctionItem(auctionItem);
+//    Bid savedBid = bidRepository.save(bid);
+//    return bidMapper.fromBid(savedBid);
+//}
+
     @Override
     public BidDTO createABid(BidDTO bidDTO) {
         Bid bid = bidMapper.fromBidDTO(bidDTO);
-        RegisteredUser registeredUser = registeredUserRepository.findRegisteredUserByEmail(bidDTO.getAuctionItemDTO().getRegisteredUserDTO().getUser().getEmail());
         AuctionItem auctionItem = auctionItemRepository.findById(bidDTO.getAuctionItemDTO().getAuctionItemId()).orElseThrow(() -> new EntityNotFoundException("Auction item with ID " + bidDTO.getAuctionItemDTO().getAuctionItemId() + " Not Found"));
-        bid.setRegisteredUser(registeredUser);
         bid.setAuctionItem(auctionItem);
         Bid savedBid = bidRepository.save(bid);
         return bidMapper.fromBid(savedBid);
     }
+
+//    @Override
+//    public BidDTO placeABid(BidDTO bidDTO) {
+//        Bid bid = bidMapper.fromBidDTO(bidDTO);
+//        RegisteredUser registeredUser = registeredUserRepository.findById(bidDTO.getRegisteredUserDTO().getRegisteredUserId()).orElse(null);
+//        AuctionItem auctionItem = auctionItemRepository.findById(bidDTO.getAuctionItemDTO().getAuctionItemId()).orElse(null);
+//        double bidAmount = bid.getAmount();
+////        if(bidAmount < getHighestBid(bidDTO.getAuctionItemDTO().getAuctionItemId())){
+////            throw new ArithmeticException();
+////        }
+//        bid.setAmount(bidAmount);
+//        bid.setAuctionItem(auctionItem);
+//        bid.setRegisteredUser(registeredUser);
+//        Bid updateBid = bidRepository.save(bid);
+//        auctionItem.setCurrentHighestBid(bid);
+//        AuctionItemMapper mapper = new AuctionItemMapper();
+//        AuctionItemDTO auctionItemDTO = mapper.fromAuctionItem(auctionItem);
+//        auctionItemService.updateAuctionItem(auctionItemDTO);
+//        return bidMapper.fromBid(updateBid);
+//    }
 
     @Override
     public BidDTO placeABid(BidDTO bidDTO) {
@@ -55,17 +100,17 @@ public class BidServiceImpl implements BidService {
         RegisteredUser registeredUser = registeredUserRepository.findById(bidDTO.getRegisteredUserDTO().getRegisteredUserId()).orElse(null);
         AuctionItem auctionItem = auctionItemRepository.findById(bidDTO.getAuctionItemDTO().getAuctionItemId()).orElse(null);
         double bidAmount = bid.getAmount();
-//        if(bidAmount < getHighestBid(bidDTO.getAuctionItemDTO().getAuctionItemId())){
-//            throw new ArithmeticException();
-//        }
+
         bid.setAmount(bidAmount);
         bid.setAuctionItem(auctionItem);
         bid.setRegisteredUser(registeredUser);
         Bid updateBid = bidRepository.save(bid);
+
         auctionItem.setCurrentHighestBid(bid);
         AuctionItemMapper mapper = new AuctionItemMapper();
         AuctionItemDTO auctionItemDTO = mapper.fromAuctionItem(auctionItem);
         auctionItemService.updateAuctionItem(auctionItemDTO);
+
         return bidMapper.fromBid(updateBid);
     }
 

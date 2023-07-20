@@ -12,7 +12,7 @@ public class AuctionItem implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "auction_item_item_id", nullable = false)
     private Long auctionItemId;
-    @Column(name = "auction_item_img_url",length = 64)
+    @Column(name = "auction_item_img_url",length = 100)
     private String auctionItmImgUrl;
     @Column(name = "description", length = 64)
     private String description;
@@ -28,14 +28,14 @@ public class AuctionItem implements Serializable {
     @Column(nullable = true)
     private LocalDateTime createdAt;
 
-    @OneToOne(cascade = CascadeType.REMOVE)
+    @ManyToOne(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
     @JoinColumn(name = "category_id", referencedColumnName = "category_id")
     private Category category;
 
     @OneToOne(cascade = CascadeType.ALL, optional = true)
     @JoinColumn(name = "bid_id")
     private Bid currentHighestBid;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "registered_user_id",referencedColumnName = "registered_user_id")
     private RegisteredUser registeredUser;
 
