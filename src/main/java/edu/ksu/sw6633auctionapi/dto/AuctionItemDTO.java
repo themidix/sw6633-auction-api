@@ -9,11 +9,13 @@ public class AuctionItemDTO {
     private String description;
     private double startingPrice;
     private boolean auctionItemStatus;
+    private LocalDateTime startingTime;
     private LocalDateTime closingTime;
-    private LocalDateTime createdAt;
+
     private CategoryDTO categoryDTO;
 
-    private BidDTO currentHighestBidDTO;
+//    private BidDTO currentHighestBidDTO;
+
     private RegisteredUserDTO registeredUserDTO;
 
     public Long getAuctionItemId() {
@@ -56,20 +58,20 @@ public class AuctionItemDTO {
         this.auctionItemStatus = auctionItemStatus;
     }
 
+    public LocalDateTime getStartingTime() {
+        return startingTime;
+    }
+
+    public void setStartingTime(LocalDateTime startingTime) {
+        this.startingTime = startingTime;
+    }
+
     public LocalDateTime getClosingTime() {
         return closingTime;
     }
 
     public void setClosingTime(LocalDateTime closingTime) {
         this.closingTime = closingTime;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
     }
 
     public CategoryDTO getCategoryDTO() {
@@ -88,11 +90,11 @@ public class AuctionItemDTO {
         this.registeredUserDTO = registeredUserDTO;
     }
 
-    public BidDTO getCurrentHighestBidDTO() {
-        return currentHighestBidDTO;
-    }
-
-    public void setCurrentHighestBidDTO(BidDTO currentHighestBidDTO) {
-        this.currentHighestBidDTO = currentHighestBidDTO;
-    }
+//    public BidDTO getCurrentHighestBidDTO() {
+//        return currentHighestBidDTO;
+//    }
+//
+//    public void setCurrentHighestBidDTO(BidDTO currentHighestBidDTO) {
+//        this.currentHighestBidDTO = currentHighestBidDTO;
+//    }
 }

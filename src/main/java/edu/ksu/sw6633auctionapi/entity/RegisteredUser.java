@@ -25,15 +25,12 @@ public class RegisteredUser {
     @Column(name = "credit_card_number", nullable = false, length = 64)
     private String creditCardNumber;
 
-    @OneToMany(mappedBy = "registeredUser", fetch = FetchType.LAZY)
-    private Set<AuctionItem> auctions = new HashSet<>();
-
-    @OneToMany(mappedBy = "registeredUser", fetch = FetchType.LAZY)
-    private Set<Bid> bids = new HashSet<>();
-
     @OneToOne(cascade = CascadeType.REMOVE)
     @JoinColumn(name = "user_id", referencedColumnName = "user_id", nullable = false)
     private User user;
+
+//    @OneToMany(mappedBy = "registeredUser", fetch = FetchType.LAZY)
+//    private Set<AuctionItem> auctions = new HashSet<>();
 
     public RegisteredUser() {
     }
@@ -67,8 +64,8 @@ public class RegisteredUser {
                 ", lastName='" + lastName + '\'' +
                 ", shippingAddress='" + shippingAddress + '\'' +
                 ", creditCardNumber='" + creditCardNumber + '\'' +
-                ", auctions=" + auctions +
-                ", bids=" + bids +
+//                ", auctions=" + auctions +
+//                ", bids=" + bids +
                 ", user=" + user +
                 '}';
     }
@@ -121,19 +118,19 @@ public class RegisteredUser {
         this.user = user;
     }
 
-    public Set<AuctionItem> getAuctions() {
-        return auctions;
-    }
+//    public Set<AuctionItem> getAuctions() {
+//        return auctions;
+//    }
+//
+//    public void setAuctions(Set<AuctionItem> auctions) {
+//        this.auctions = auctions;
+//    }
 
-    public void setAuctions(Set<AuctionItem> auctions) {
-        this.auctions = auctions;
-    }
-
-    public Set<Bid> getBids() {
-        return bids;
-    }
-
-    public void setBids(Set<Bid> bids) {
-        this.bids = bids;
-    }
+//    public Set<Bid> getBids() {
+//        return bids;
+//    }
+//
+//    public void setBids(Set<Bid> bids) {
+//        this.bids = bids;
+//    }
 }

@@ -14,7 +14,7 @@ public class Role {
     @Column(name ="role_id", nullable = false)
     private Long roleId;
     @Basic
-    @Column(name = "name", nullable = false, length = 45, unique = true)
+    @Column(name = "name", nullable = false, length = 45)
     private String name;
 
     @ManyToMany(mappedBy = "roles", fetch = FetchType.LAZY)
