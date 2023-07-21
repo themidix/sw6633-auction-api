@@ -26,6 +26,7 @@ public class AuctionItem implements Serializable {
     private LocalDateTime closingTime;
 
     @Column(nullable = true)
+    @Temporal("")
     private LocalDateTime createdAt;
 
     @ManyToOne(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
